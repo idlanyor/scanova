@@ -1,0 +1,197 @@
+<resources>
+    <string name="app_name">Scanova</string>
+    <string name="app_tagline">Scan Smarter, Instantly.</string>
+
+    <!-- Navigation -->
+    <string name="nav_scanner">Scanner</string>
+    <string name="nav_history">History</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Scanner Screen -->
+    <string name="scanner_instruction">Point the camera at a QR code or barcode</string>
+    <string name="scanner_status_ready">Ready for real-time scanning</string>
+    <string name="scanner_status_paused">Scanning paused</string>
+    <string name="scanner_status_batch">Batch Mode Active</string>
+    <string name="scanner_status_multi_code">%1$d codes detected — tap a box to select</string>
+    <string name="scanner_torch_on">Turn Off Flashlight</string>
+    <string name="scanner_torch_off">Turn On Flashlight</string>
+    <string name="scanner_torch_unavailable">Flashlight is unavailable on this device</string>
+    <string name="scanner_gallery_button">Gallery</string>
+    <string name="scanner_create_qr_button">Create QR</string>
+    <string name="scanner_batch_toggle">Batch</string>
+    <string name="scanner_zoom_label">Zoom %1$.1fx</string>
+    <string name="scanner_open_selected">Open Code Details</string>
+    <string name="scanner_resume_scanning">Resume Scanning</string>
+    <string name="scanner_batch_count_title">%1$d codes scanned in this session</string>
+    <string name="scanner_batch_view_history">View History</string>
+    <string name="scanner_batch_clear">Reset</string>
+    <string name="scanner_gallery_loading">Analyzing image from gallery…</string>
+    <string name="scanner_gallery_no_code">No QR code or barcode was found in the selected image.</string>
+    <string name="scanner_gallery_error">Failed to load or decode image. Please select a valid image file.</string>
+    <string name="scanner_camera_error">Unable to initialize camera. Make sure it is not in use by another app.</string>
+    <string name="scanner_camera_retry">Try Again</string>
+
+    <!-- Camera Permission States -->
+    <string name="permission_camera_title">Camera Permission Required</string>
+    <string name="permission_camera_rationale">Scanova requires camera access to scan QR codes and barcodes in real time. All processing happens 100%% offline on your device.</string>
+    <string name="permission_camera_permanently_denied">Camera permission was permanently denied. Open App Settings to enable camera access, or use Scan from Gallery below.</string>
+    <string name="permission_grant_button">Allow Camera Access</string>
+    <string name="permission_open_settings">Open App Settings</string>
+    <string name="permission_use_gallery_instead">Scan from Gallery Without Camera</string>
+
+    <!-- Content Categories -->
+    <string name="category_url">Website Link (URL)</string>
+    <string name="category_text">Plain Text</string>
+    <string name="category_wifi">Wi-Fi Network</string>
+    <string name="category_email">Email</string>
+    <string name="category_phone">Phone Number</string>
+    <string name="category_sms">SMS Message</string>
+    <string name="category_contact">Contact / vCard</string>
+    <string name="category_location">Geographic Location</string>
+    <string name="category_calendar">Calendar Event</string>
+    <string name="category_product">Product Barcode</string>
+    <string name="category_unknown">Unknown Format</string>
+
+    <!-- Scan Sources & Formats -->
+    <string name="source_camera">Live Camera</string>
+    <string name="source_gallery">Gallery Import</string>
+    <string name="type_2d_code">2D Code</string>
+    <string name="type_1d_barcode">1D Barcode</string>
+
+    <!-- Result Detail Screen -->
+    <string name="result_screen_title">Scan Result</string>
+    <string name="result_parsed_section">Parsed Details</string>
+    <string name="result_raw_section">Raw Decoded Value</string>
+    <string name="result_security_notice_url">Inspect the full URL below before opening it in an external browser.</string>
+    <string name="result_security_warning_scheme">Non-standard or suspicious URI scheme detected. Displayed as plain text for your safety.</string>
+    <string name="result_action_copy">Copy</string>
+    <string name="result_action_share">Share</string>
+    <string name="result_action_open_url">Open Link</string>
+    <string name="result_action_copy_ssid">Copy Wi-Fi Name (SSID)</string>
+    <string name="result_action_copy_password">Copy Wi-Fi Password</string>
+    <string name="result_action_open_wifi_settings">Open Wi-Fi Settings</string>
+    <string name="result_action_send_email">Compose Email</string>
+    <string name="result_action_dial_phone">Dial Number</string>
+    <string name="result_action_send_sms">Send SMS</string>
+    <string name="result_action_add_contact">Add to Contacts</string>
+    <string name="result_action_open_map">Open in Maps</string>
+    <string name="result_action_add_calendar">Add to Calendar</string>
+    <string name="result_action_search_google">Search Product on Google</string>
+    <string name="result_action_search_openfoodfacts">Lookup on Open Food Facts / UPC</string>
+    <string name="result_action_favorite">Favorite</string>
+    <string name="result_action_unfavorite">Unfavorite</string>
+    <string name="result_action_save_history">Save to History</string>
+    <string name="result_action_delete_history">Remove from History</string>
+    <string name="result_action_scan_again">Scan Another Code</string>
+    <string name="result_wifi_ssid">Network Name (SSID)</string>
+    <string name="result_wifi_security">Security Type</string>
+    <string name="result_wifi_password">Password</string>
+    <string name="result_wifi_hidden">Hidden Network</string>
+    <string name="result_wifi_show_password">Show Password</string>
+    <string name="result_wifi_hide_password">Hide Password</string>
+    <string name="result_wifi_no_password">No Password (Open Network)</string>
+    <string name="result_field_name">Full Name</string>
+    <string name="result_field_org">Organization</string>
+    <string name="result_field_title">Job Title</string>
+    <string name="result_field_phone">Phone</string>
+    <string name="result_field_email">Email Address</string>
+    <string name="result_field_subject">Subject</string>
+    <string name="result_field_body">Message Body</string>
+    <string name="result_field_address">Address</string>
+    <string name="result_field_website">Website</string>
+    <string name="result_field_note">Notes</string>
+    <string name="result_field_coordinates">Coordinates</string>
+    <string name="result_field_query">Location Query</string>
+    <string name="result_field_event_title">Event Title</string>
+    <string name="result_field_event_start">Start Time</string>
+    <string name="result_field_event_end">End Time</string>
+    <string name="result_field_event_location">Event Location</string>
+    <string name="result_field_product_code">Product Code</string>
+    <string name="result_field_symbology">Barcode Symbology</string>
+    <string name="result_field_country_origin">GS1 Country Prefix</string>
+    <string name="result_copied_toast">Copied to clipboard</string>
+    <string name="result_saved_toast">Saved to history</string>
+    <string name="result_deleted_toast">Removed from history</string>
+    <string name="result_no_app_error">No compatible application found to perform this action.</string>
+    <string name="common_yes">Yes</string>
+    <string name="common_no">No</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="common_confirm">Confirm</string>
+    <string name="common_close">Close</string>
+    <string name="common_back">Back</string>
+
+    <!-- History Screen -->
+    <string name="history_title">Scan History</string>
+    <string name="history_search_placeholder">Search code payload, Wi-Fi SSID, or format…</string>
+    <string name="history_filter_all">All</string>
+    <string name="history_filter_favorites">Favorites</string>
+    <string name="history_filter_qr">QR &amp; 2D</string>
+    <string name="history_filter_barcode">1D Barcodes</string>
+    <string name="history_sort_newest">Newest</string>
+    <string name="history_sort_oldest">Oldest</string>
+    <string name="history_export_csv">Export CSV</string>
+    <string name="history_clear_all">Clear All</string>
+    <string name="history_delete_selected">Delete (%1$d)</string>
+    <string name="history_select_mode_title">%1$d selected</string>
+    <string name="history_empty_title">No Scan History Yet</string>
+    <string name="history_empty_subtitle">All QR codes and barcodes you scan will be stored privately and offline right on this device.</string>
+    <string name="history_empty_search_title">No Matching Results</string>
+    <string name="history_empty_search_subtitle">Try adjusting your search query or category filter chips above.</string>
+    <string name="history_start_scanning_cta">Start Scanning Now</string>
+    <string name="history_group_today">Today</string>
+    <string name="history_group_yesterday">Yesterday</string>
+    <string name="history_clear_dialog_title">Clear All Scan History?</string>
+    <string name="history_clear_dialog_message">This action will permanently delete all saved scan records from your device.</string>
+    <string name="history_csv_export_success">History exported to CSV file</string>
+    <string name="history_csv_export_error">Failed to export CSV file</string>
+
+    <!-- Custom QR Generator -->
+    <string name="qr_gen_title">Create Custom QR Code</string>
+    <string name="qr_gen_type_text">Text</string>
+    <string name="qr_gen_type_url">URL</string>
+    <string name="qr_gen_type_wifi">Wi-Fi</string>
+    <string name="qr_gen_input_text_label">Enter text or message</string>
+    <string name="qr_gen_input_url_label">Enter website URL (https://…)</string>
+    <string name="qr_gen_input_ssid_label">Wi-Fi Network Name (SSID)</string>
+    <string name="qr_gen_input_password_label">Wi-Fi Password</string>
+    <string name="qr_gen_share_button">Share QR Image</string>
+    <string name="qr_gen_save_to_history">Save to History</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_section_scan">Scan Preferences</string>
+    <string name="settings_sound_title">Sound on Scan</string>
+    <string name="settings_sound_subtitle">Play a subtle beep when a code is decoded</string>
+    <string name="settings_vibration_title">Haptic Vibration</string>
+    <string name="settings_vibration_subtitle">Vibrate upon successful scan</string>
+    <string name="settings_autosave_title">Auto-Save History</string>
+    <string name="settings_autosave_subtitle">Automatically store every scan in your local database</string>
+    <string name="settings_batch_title">Continuous Batch Scanning</string>
+    <string name="settings_batch_subtitle">Scan multiple codes consecutively without leaving the camera</string>
+
+    <string name="settings_section_appearance">Appearance &amp; Theme</string>
+    <string name="settings_theme_title">Theme Mode</string>
+    <string name="settings_theme_system">System Default</string>
+    <string name="settings_theme_light">Light Mode</string>
+    <string name="settings_theme_dark">Dark Mode</string>
+    <string name="settings_dynamic_color_title">Dynamic Color (Material You)</string>
+    <string name="settings_dynamic_color_subtitle">Use wallpaper-derived colors on Android 12+</string>
+
+    <string name="settings_section_privacy">Data &amp; Privacy</string>
+    <string name="settings_export_csv_title">Export History to CSV</string>
+    <string name="settings_export_csv_subtitle">Save a copy of your scan history to a document file</string>
+    <string name="settings_clear_history_title">Clear All Scan History</string>
+    <string name="settings_clear_history_subtitle">Permanently delete all local scan records</string>
+    <string name="settings_privacy_info_title">Privacy &amp; Offline Processing</string>
+    <string name="settings_privacy_info_subtitle">Learn how Scanova protects your data without internet access</string>
+    <string name="settings_privacy_dialog_body">• 100%% On-Device Processing: All QR code and barcode detection happens locally using bundled Google ML Kit models without uploading images to any server.\n\n• Local Storage: Your scan history is stored exclusively inside an on-device Room database.\n\n• Zero Trackers or Ads: Scanova contains no analytics SDKs, advertising trackers, or mandatory accounts.\n\n• Explicit User Control: No URLs, phone calls, or Wi-Fi networks are ever triggered without your explicit action.</string>
+
+    <string name="settings_section_general">General &amp; About</string>
+    <string name="settings_language_title">App Language</string>
+    <string name="settings_language_id">Bahasa Indonesia</string>
+    <string name="settings_language_en">English</string>
+    <string name="settings_version_title">App Version</string>
+    <string name="settings_about_title">About Scanova</string>
+    <string name="settings_about_subtitle">Architecture, supported formats, and open-source licenses</string>
+    <string name="settings_about_dialog_body">Scanova — Scan Smarter, Instantly.\n\nSupports 2D formats (QR Code, Data Matrix, PDF417, Aztec) and 1D formats (EAN-13, EAN-8, UPC-A, UPC-E, Code 128, Code 39, Code 93, Codabar, ITF).\n\nOpen-Source Licenses:\n• Android Jetpack (Compose, CameraX, Room, DataStore, Navigation) — Apache License 2.0\n• Google ML Kit Barcode Scanning — Apache License 2.0 / Google APIs Terms\n• ZXing Core — Apache License 2.0\n• Kotlin Coroutines — Apache License 2.0</string>
+</resources>

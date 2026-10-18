@@ -1,0 +1,197 @@
+<resources>
+    <string name="app_name">Scanova</string>
+    <string name="app_tagline">Scan Smarter, Instantly.</string>
+
+    <!-- Navigation -->
+    <string name="nav_scanner">Pemindai</string>
+    <string name="nav_history">Riwayat</string>
+    <string name="nav_settings">Pengaturan</string>
+
+    <!-- Scanner Screen -->
+    <string name="scanner_instruction">Arahkan kamera ke QR Code atau barcode</string>
+    <string name="scanner_status_ready">Siap memindai secara real-time</string>
+    <string name="scanner_status_paused">Pemindaian dijeda</string>
+    <string name="scanner_status_batch">Mode Batch Aktif</string>
+    <string name="scanner_status_multi_code">%1$d kode terdeteksi — ketuk kotak untuk memilih</string>
+    <string name="scanner_torch_on">Matikan Senter</string>
+    <string name="scanner_torch_off">Nyalakan Senter</string>
+    <string name="scanner_torch_unavailable">Senter tidak tersedia di perangkat ini</string>
+    <string name="scanner_gallery_button">Galeri</string>
+    <string name="scanner_create_qr_button">Buat QR</string>
+    <string name="scanner_batch_toggle">Batch</string>
+    <string name="scanner_zoom_label">Zoom %1$.1fx</string>
+    <string name="scanner_open_selected">Buka Detail Kode</string>
+    <string name="scanner_resume_scanning">Lanjutkan Pindai</string>
+    <string name="scanner_batch_count_title">%1$d kode terpindai dalam sesi ini</string>
+    <string name="scanner_batch_view_history">Lihat Riwayat</string>
+    <string name="scanner_batch_clear">Reset</string>
+    <string name="scanner_gallery_loading">Menganalisis gambar dari galeri…</string>
+    <string name="scanner_gallery_no_code">Tidak ditemukan QR Code atau barcode pada gambar yang dipilih.</string>
+    <string name="scanner_gallery_error">Gagal memuat atau membaca gambar. Pastikan file gambar valid.</string>
+    <string name="scanner_camera_error">Gagal menyiapkan kamera. Pastikan kamera tidak sedang digunakan aplikasi lain.</string>
+    <string name="scanner_camera_retry">Coba Lagi</string>
+
+    <!-- Camera Permission States -->
+    <string name="permission_camera_title">Izin Kamera Diperlukan</string>
+    <string name="permission_camera_rationale">Scanova memerlukan akses kamera untuk memindai QR Code dan barcode secara langsung. Pemrosesan dilakukan 100%% offline di perangkat Anda.</string>
+    <string name="permission_camera_permanently_denied">Izin kamera telah ditolak secara permanen. Buka Pengaturan Aplikasi untuk mengaktifkan izin kamera, atau gunakan fitur Pindai dari Galeri di bawah.</string>
+    <string name="permission_grant_button">Izinkan Akses Kamera</string>
+    <string name="permission_open_settings">Buka Pengaturan Aplikasi</string>
+    <string name="permission_use_gallery_instead">Pindai dari Galeri Tanpa Kamera</string>
+
+    <!-- Content Categories -->
+    <string name="category_url">Tautan Web (URL)</string>
+    <string name="category_text">Teks Biasa</string>
+    <string name="category_wifi">Jaringan Wi-Fi</string>
+    <string name="category_email">Email</string>
+    <string name="category_phone">Nomor Telepon</string>
+    <string name="category_sms">Pesan SMS</string>
+    <string name="category_contact">Kontak / vCard</string>
+    <string name="category_location">Lokasi Geografis</string>
+    <string name="category_calendar">Acara Kalender</string>
+    <string name="category_product">Barcode Produk</string>
+    <string name="category_unknown">Format Tidak Dikenal</string>
+
+    <!-- Scan Sources & Formats -->
+    <string name="source_camera">Kamera Langsung</string>
+    <string name="source_gallery">Impor Galeri</string>
+    <string name="type_2d_code">Kode 2D</string>
+    <string name="type_1d_barcode">Barcode 1D</string>
+
+    <!-- Result Detail Screen -->
+    <string name="result_screen_title">Hasil Pemindaian</string>
+    <string name="result_parsed_section">Informasi Terurai</string>
+    <string name="result_raw_section">Nilai Mentah (Raw Payload)</string>
+    <string name="result_security_notice_url">Periksa URL lengkap di bawah sebelum membuka tautan di browser eksternal.</string>
+    <string name="result_security_warning_scheme">Skema URI tidak standar atau mencurigakan terdeteksi. Ditampilkan sebagai teks biasa demi keamanan Anda.</string>
+    <string name="result_action_copy">Salin</string>
+    <string name="result_action_share">Bagikan</string>
+    <string name="result_action_open_url">Buka Tautan</string>
+    <string name="result_action_copy_ssid">Salin Nama Wi-Fi (SSID)</string>
+    <string name="result_action_copy_password">Salin Kata Sandi Wi-Fi</string>
+    <string name="result_action_open_wifi_settings">Buka Pengaturan Wi-Fi</string>
+    <string name="result_action_send_email">Tulis Email</string>
+    <string name="result_action_dial_phone">Buka Telepon</string>
+    <string name="result_action_send_sms">Kirim SMS</string>
+    <string name="result_action_add_contact">Simpan ke Kontak</string>
+    <string name="result_action_open_map">Buka di Peta</string>
+    <string name="result_action_add_calendar">Tambah ke Kalender</string>
+    <string name="result_action_search_google">Cari Produk di Google</string>
+    <string name="result_action_search_openfoodfacts">Cek di Open Food Facts / UPC</string>
+    <string name="result_action_favorite">Favoritkan</string>
+    <string name="result_action_unfavorite">Hapus Favorit</string>
+    <string name="result_action_save_history">Simpan ke Riwayat</string>
+    <string name="result_action_delete_history">Hapus dari Riwayat</string>
+    <string name="result_action_scan_again">Pindai Kode Lain</string>
+    <string name="result_wifi_ssid">Nama Jaringan (SSID)</string>
+    <string name="result_wifi_security">Keamanan</string>
+    <string name="result_wifi_password">Kata Sandi</string>
+    <string name="result_wifi_hidden">Jaringan Tersembunyi</string>
+    <string name="result_wifi_show_password">Tampilkan Sandi</string>
+    <string name="result_wifi_hide_password">Sembunyikan Sandi</string>
+    <string name="result_wifi_no_password">Tanpa Kata Sandi (Terbuka)</string>
+    <string name="result_field_name">Nama Lengkap</string>
+    <string name="result_field_org">Organisasi</string>
+    <string name="result_field_title">Jabatan</string>
+    <string name="result_field_phone">Telepon</string>
+    <string name="result_field_email">Alamat Email</string>
+    <string name="result_field_subject">Subjek</string>
+    <string name="result_field_body">Isi Pesan</string>
+    <string name="result_field_address">Alamat</string>
+    <string name="result_field_website">Situs Web</string>
+    <string name="result_field_note">Catatan</string>
+    <string name="result_field_coordinates">Koordinat</string>
+    <string name="result_field_query">Kueri Lokasi</string>
+    <string name="result_field_event_title">Nama Acara</string>
+    <string name="result_field_event_start">Waktu Mulai</string>
+    <string name="result_field_event_end">Waktu Selesai</string>
+    <string name="result_field_event_location">Lokasi Acara</string>
+    <string name="result_field_product_code">Kode Produk</string>
+    <string name="result_field_symbology">Format Barcode</string>
+    <string name="result_field_country_origin">Estimasi Negara GS1</string>
+    <string name="result_copied_toast">Disalin ke papan klip</string>
+    <string name="result_saved_toast">Disimpan ke riwayat</string>
+    <string name="result_deleted_toast">Dihapus dari riwayat</string>
+    <string name="result_no_app_error">Tidak ada aplikasi yang kompatibel untuk menjalankan aksi ini.</string>
+    <string name="common_yes">Ya</string>
+    <string name="common_no">Tidak</string>
+    <string name="common_cancel">Batal</string>
+    <string name="common_confirm">Konfirmasi</string>
+    <string name="common_close">Tutup</string>
+    <string name="common_back">Kembali</string>
+
+    <!-- History Screen -->
+    <string name="history_title">Riwayat Pemindaian</string>
+    <string name="history_search_placeholder">Cari isi kode, nama Wi-Fi, atau format…</string>
+    <string name="history_filter_all">Semua</string>
+    <string name="history_filter_favorites">Favorit</string>
+    <string name="history_filter_qr">QR &amp; 2D</string>
+    <string name="history_filter_barcode">Barcode 1D</string>
+    <string name="history_sort_newest">Terbaru</string>
+    <string name="history_sort_oldest">Terlama</string>
+    <string name="history_export_csv">Ekspor CSV</string>
+    <string name="history_clear_all">Hapus Semua</string>
+    <string name="history_delete_selected">Hapus (%1$d)</string>
+    <string name="history_select_mode_title">%1$d dipilih</string>
+    <string name="history_empty_title">Belum Ada Riwayat Pemindaian</string>
+    <string name="history_empty_subtitle">Semua QR Code dan barcode yang Anda pindai akan tersimpan dengan aman secara offline di perangkat ini.</string>
+    <string name="history_empty_search_title">Tidak Ada Hasil yang Cocok</string>
+    <string name="history_empty_search_subtitle">Coba ubah kata kunci pencarian atau filter kategori di atas.</string>
+    <string name="history_start_scanning_cta">Mulai Memindai Sekarang</string>
+    <string name="history_group_today">Hari Ini</string>
+    <string name="history_group_yesterday">Kemarin</string>
+    <string name="history_clear_dialog_title">Hapus Seluruh Riwayat?</string>
+    <string name="history_clear_dialog_message">Tindakan ini akan menghapus semua riwayat pemindaian secara permanen dari perangkat Anda.</string>
+    <string name="history_csv_export_success">Riwayat berhasil diekspor ke file CSV</string>
+    <string name="history_csv_export_error">Gagal mengekspor file CSV</string>
+
+    <!-- Custom QR Generator -->
+    <string name="qr_gen_title">Buat QR Code Kustom</string>
+    <string name="qr_gen_type_text">Teks</string>
+    <string name="qr_gen_type_url">URL</string>
+    <string name="qr_gen_type_wifi">Wi-Fi</string>
+    <string name="qr_gen_input_text_label">Masukkan teks atau pesan</string>
+    <string name="qr_gen_input_url_label">Masukkan alamat situs web (https://…)</string>
+    <string name="qr_gen_input_ssid_label">Nama Jaringan Wi-Fi (SSID)</string>
+    <string name="qr_gen_input_password_label">Kata Sandi Wi-Fi</string>
+    <string name="qr_gen_share_button">Bagikan Gambar QR</string>
+    <string name="qr_gen_save_to_history">Simpan ke Riwayat</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Pengaturan</string>
+    <string name="settings_section_scan">Preferensi Pemindaian</string>
+    <string name="settings_sound_title">Suara Saat Berhasil</string>
+    <string name="settings_sound_subtitle">Putar bunyi bip lembut saat kode terdeteksi</string>
+    <string name="settings_vibration_title">Getaran Haptik</string>
+    <string name="settings_vibration_subtitle">Bergetar saat pemindaian berhasil</string>
+    <string name="settings_autosave_title">Simpan Riwayat Otomatis</string>
+    <string name="settings_autosave_subtitle">Simpan setiap hasil pindai secara otomatis ke database lokal</string>
+    <string name="settings_batch_title">Mode Pemindaian Beruntun (Batch)</string>
+    <string name="settings_batch_subtitle">Pindai banyak kode berturut-turut tanpa berpindah layar</string>
+
+    <string name="settings_section_appearance">Tampilan &amp; Tema</string>
+    <string name="settings_theme_title">Mode Tema</string>
+    <string name="settings_theme_system">Ikuti Sistem</string>
+    <string name="settings_theme_light">Mode Terang</string>
+    <string name="settings_theme_dark">Mode Gelap</string>
+    <string name="settings_dynamic_color_title">Warna Dinamis (Material You)</string>
+    <string name="settings_dynamic_color_subtitle">Gunakan palet warna wallpaper pada Android 12+</string>
+
+    <string name="settings_section_privacy">Data &amp; Privasi</string>
+    <string name="settings_export_csv_title">Ekspor Riwayat ke CSV</string>
+    <string name="settings_export_csv_subtitle">Simpan salinan riwayat pemindaian ke penyimpanan dokumen</string>
+    <string name="settings_clear_history_title">Bersihkan Semua Riwayat</string>
+    <string name="settings_clear_history_subtitle">Hapus seluruh catatan pemindaian lokal secara permanen</string>
+    <string name="settings_privacy_info_title">Jaminan Privasi &amp; Pemrosesan Offline</string>
+    <string name="settings_privacy_info_subtitle">Pelajari bagaimana Scanova melindungi data Anda tanpa koneksi internet</string>
+    <string name="settings_privacy_dialog_body">• 100%% Pemrosesan On-Device: Semua deteksi QR Code dan barcode diproses secara lokal menggunakan Google ML Kit tanpa mengirim gambar ke server mana pun.\n\n• Penyimpanan Lokal: Riwayat pemindaian disimpan secara eksklusif di database Room pada perangkat Anda.\n\n• Tanpa Pelacak &amp; Iklan: Scanova tidak menyertakan SDK analitik, pelacak iklan, atau akun wajib.\n\n• Kontrol Penuh: Tidak ada tautan, panggilan, atau jaringan Wi-Fi yang dieksekusi tanpa persetujuan eksplisit Anda.</string>
+
+    <string name="settings_section_general">Umum &amp; Tentang</string>
+    <string name="settings_language_title">Bahasa Aplikasi</string>
+    <string name="settings_language_id">Bahasa Indonesia</string>
+    <string name="settings_language_en">English</string>
+    <string name="settings_version_title">Versi Aplikasi</string>
+    <string name="settings_about_title">Tentang Scanova</string>
+    <string name="settings_about_subtitle">Arsitektur, format yang didukung, dan lisensi sumber terbuka</string>
+    <string name="settings_about_dialog_body">Scanova — Scan Smarter, Instantly.\n\nMendukung format 2D (QR Code, Data Matrix, PDF417, Aztec) dan 1D (EAN-13, EAN-8, UPC-A, UPC-E, Code 128, Code 39, Code 93, Codabar, ITF).\n\nLisensi Sumber Terbuka:\n• Android Jetpack (Compose, CameraX, Room, DataStore, Navigation) — Apache License 2.0\n• Google ML Kit Barcode Scanning — Apache License 2.0 / Google APIs Terms\n• ZXing Core — Apache License 2.0\n• Kotlin Coroutines — Apache License 2.0</string>
+</resources>

@@ -1,0 +1,6 @@
+{
+  "summary": "Comprehensive architectural and product implementation plan for Scanova — QR & Barcode Scanner, detailing the UX flows, Material Design 3 Indigo theme, bundled ML Kit + CameraX integration, multi-code selection, Room offline history, DataStore preferences, and Phase 4 enhancements (CSV export, batch scanning, and custom QR generation).",
+  "updatedAt": "2026-10-18T11:59:30.324930991Z",
+  "requestFeedback": true,
+  "userFacing": true
+}

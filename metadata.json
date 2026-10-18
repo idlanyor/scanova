@@ -1,0 +1,6 @@
+{
+  "name": "Scanova",
+  "description": "Fast, offline-first QR & Barcode Scanner with smart content classification, secure actions, local history, batch mode, CSV export, and custom QR generation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

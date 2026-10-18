@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Outer Top-Left Corner Bracket -->
+    <path
+        android:fillColor="#FF818CF8"
+        android:pathData="M33,28h11v5h-9c-1.1,0 -2,0.9 -2,2v9h-5v-11c0,-2.76 2.24,-5 5,-5z" />
+    <!-- Outer Top-Right Corner Bracket -->
+    <path
+        android:fillColor="#FF818CF8"
+        android:pathData="M75,28h-11v5h9c1.1,0 2,0.9 2,2v9h5v-11c0,-2.76 -2.24,-5 -5,-5z" />
+    <!-- Outer Bottom-Left Corner Bracket -->
+    <path
+        android:fillColor="#FF818CF8"
+        android:pathData="M33,80h11v-5h-9c-1.1,0 -2,-0.9 -2,-2v-9h-5v11c0,2.76 2.24,5 5,5z" />
+    <!-- Outer Bottom-Right Corner Bracket -->
+    <path
+        android:fillColor="#FF818CF8"
+        android:pathData="M75,80h-11v-5h9c1.1,0 2,-0.9 2,-2v-9h5v11c0,2.76 -2.24,5 -5,5z" />
+
+    <!-- Inner QR Matrix Finder Blocks -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M39,39h12v12h-12zM42,42v6h6v-6h-6z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M57,39h12v12h-12zM60,42v6h6v-6h-6z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M39,57h12v12h-12zM42,60v6h6v-6h-6z" />
+
+    <!-- Dynamic Data Nodes & Emerald Scan Accent -->
+    <path
+        android:fillColor="#FF10B981"
+        android:pathData="M57,57h6v6h-6zM63,63h6v6h-6zM57,65h4v4h-4zM65,57h4v4h-4z" />
+    <path
+        android:fillColor="#FF6366F1"
+        android:pathData="M26,52.5h56v3h-56z" />
+</vector>
