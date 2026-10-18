@@ -69,16 +69,15 @@ gradle :app:assembleDebug
 The generated debug APK will be located at:
 `app/build/outputs/apk/debug/app-debug.apk`
 
-### 3. Build Release Android App Bundle (AAB) for Google Play
-1. Configure your release keystore credentials via environment variables (`KEYSTORE_PATH`, `STORE_PASSWORD`, `KEY_PASSWORD`) or Android Studio's **Build > Generate Signed App Bundle / APK** wizard.
-2. Run the bundle task:
-```bash
-gradle :app:bundleRelease
-```
-The signed release AAB will be generated at:
-`app/build/outputs/bundle/release/app-release.aab`
-
----
+### 4. Automated CI/CD & GitHub Releases
+Proyek ini dilengkapi dengan GitHub Actions workflow di `.github/workflows/release.yml`.
+- **Triggers**:
+  - Otomatis saat membuat dan mendorong Git tag versi (contoh: `git tag v1.0.0 && git push origin v1.0.0`).
+  - Atau secara manual melalui tab **Actions > Build & Release Scanova > Run workflow** di GitHub.
+- **Output di GitHub Releases**:
+  - `scanova-<version>.apk` (file APK siap pasang di perangkat fisik).
+  - `scanova-<version>.aab` (file Android App Bundle untuk konsol Google Play).
+  - Release otomatis dipublikasikan langsung ke [https://github.com/idlanyor/scanova/releases](https://github.com/idlanyor/scanova/releases).
 
 ## Manual Physical Device Validation Checklist
 

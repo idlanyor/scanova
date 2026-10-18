@@ -1,0 +1,134 @@
+name: Build & Release Scanova
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag/Release name (e.g. v1.0.0)'
+        required: false
+        default: 'v1.0.0'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    name: Build & Publish Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Grant Execute Permission for Gradlew
+        run: chmod +x gradlew
+
+      - name: Prepare Keystore & Environment
+        run: |
+          # Create .env from .env.example if not present
+          if [ ! -f .env ]; then
+            cp .env.example .env
+          fi
+
+          # Prepare Release Keystore: from secret if provided, otherwise generate a secure release key
+          if [ -n "${{ secrets.RELEASE_KEYSTORE_BASE64 }}" ]; then
+            echo "Decoding release keystore from GitHub Secrets..."
+            echo "${{ secrets.RELEASE_KEYSTORE_BASE64 }}" | base64 --decode > my-upload-key.jks
+            echo "STORE_PASSWORD=${{ secrets.STORE_PASSWORD || 'android' }}" >> $GITHUB_ENV
+            echo "KEY_PASSWORD=${{ secrets.KEY_PASSWORD || 'android' }}" >> $GITHUB_ENV
+          else
+            echo "No custom release keystore secret found. Generating standalone release key for signing..."
+            keytool -genkeypair -v \
+              -keystore my-upload-key.jks \
+              -alias upload \
+              -keyalg RSA \
+              -keysize 2048 \
+              -validity 10000 \
+              -storepass android \
+              -keypass android \
+              -dname "CN=Scanova, OU=Mobile, O=Scanova, L=Jakarta, ST=Jakarta, C=ID"
+            echo "STORE_PASSWORD=android" >> $GITHUB_ENV
+            echo "KEY_PASSWORD=android" >> $GITHUB_ENV
+          fi
+          echo "KEYSTORE_PATH=$GITHUB_WORKSPACE/my-upload-key.jks" >> $GITHUB_ENV
+
+      - name: Run Unit & Robolectric Tests
+        run: ./gradlew testDebugUnitTest --no-daemon
+
+      - name: Build Release APK & AAB
+        run: ./gradlew assembleRelease bundleRelease --no-daemon
+
+      - name: Rename & Package Release Artifacts
+        id: prepare_artifacts
+        run: |
+          RELEASE_TAG="${{ github.ref_name }}"
+          if [ -z "$RELEASE_TAG" ] || [ "$RELEASE_TAG" = "main" ] || [ "$RELEASE_TAG" = "master" ]; then
+            RELEASE_TAG="${{ inputs.tag_name || 'v1.0.0' }}"
+          fi
+
+          mkdir -p release-artifacts
+          
+          # Copy and rename APK
+          if [ -f app/build/outputs/apk/release/app-release.apk ]; then
+            cp app/build/outputs/apk/release/app-release.apk release-artifacts/scanova-${RELEASE_TAG}.apk
+          elif [ -f app/build/outputs/apk/release/app-release-unsigned.apk ]; then
+            cp app/build/outputs/apk/release/app-release-unsigned.apk release-artifacts/scanova-${RELEASE_TAG}.apk
+          fi
+
+          # Copy and rename AAB (Google Play Bundle)
+          if [ -f app/build/outputs/bundle/release/app-release.aab ]; then
+            cp app/build/outputs/bundle/release/app-release.aab release-artifacts/scanova-${RELEASE_TAG}.aab
+          fi
+
+          echo "RELEASE_TAG=$RELEASE_TAG" >> $GITHUB_ENV
+          ls -lh release-artifacts/
+
+      - name: Upload Artifacts as Workflow Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: scanova-release-builds
+          path: release-artifacts/*
+
+      - name: Create GitHub Release & Upload Binaries
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: "Scanova ${{ env.RELEASE_TAG }}"
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          files: |
+            release-artifacts/*.apk
+            release-artifacts/*.aab
+          body: |
+            ## Scanova — QR & Barcode Scanner (${{ env.RELEASE_TAG }})
+
+            ### What's New
+            - **Real-Time CameraX & ML Kit Scanner**: Instant scanning for all 2D (`QR`, `Data Matrix`, `PDF417`, `Aztec`) and 1D (`EAN-13`, `UPC-A`, `Code 128`, etc.) barcodes.
+            - **Multi-Code Selection**: Interactive highlighted bounding boxes to choose between multiple codes in frame.
+            - **Continuous Batch Scanning Mode**: Rapid consecutive scanning with floating counter.
+            - **Scan from Gallery**: Zero-permission Photo Picker with EXIF orientation correction.
+            - **Smart Content Actions**: URL inspector, Wi-Fi mask/reveal, vCard/contacts, calendar, geo maps, and retail product lookups (Google & Open Food Facts).
+            - **Offline Room History & CSV Export**: Chronological local history, category/favorite filters, search, and CSV export.
+            - **Built-in QR Generator**: Create, preview, and share custom QR codes for Text, URLs, and Wi-Fi.
+
+            ### Downloads
+            - **`scanova-${{ env.RELEASE_TAG }}.apk`**: Direct installable APK for Android 8.0+ (API 26+)
+            - **`scanova-${{ env.RELEASE_TAG }}.aab`**: Android App Bundle ready for Google Play Store publication
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
