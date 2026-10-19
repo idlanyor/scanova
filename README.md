@@ -72,12 +72,13 @@ The generated debug APK will be located at:
 ### 4. Automated CI/CD & GitHub Releases
 Proyek ini dilengkapi dengan GitHub Actions workflow di `.github/workflows/release.yml`.
 - **Triggers**:
-  - Otomatis saat membuat dan mendorong Git tag versi (contoh: `git tag v1.0.0 && git push origin v1.0.0`).
-  - Atau secara manual melalui tab **Actions > Build & Release Scanova > Run workflow** di GitHub.
+  - **Otomatis setiap ada commit / push** ke branch `main` atau `master` (menghasilkan rilis dengan penomoran versi tanggal & commit hash, misal `v2026.10.18-a1b2c3d`).
+  - **Otomatis saat push Git tag versi** (misal: `git tag v1.0.0 && git push origin v1.0.0`).
+  - **Manual** melalui tab **Actions > Build & Release Scanova > Run workflow** di GitHub.
 - **Output di GitHub Releases**:
   - `scanova-<version>.apk` (file APK siap pasang di perangkat fisik).
-  - `scanova-<version>.aab` (file Android App Bundle untuk konsol Google Play).
-  - Release otomatis dipublikasikan langsung ke [https://github.com/idlanyor/scanova/releases](https://github.com/idlanyor/scanova/releases).
+  - `scanova-<version>.aab` (file Android App Bundle untuk Google Play Store).
+  - Release dipublikasikan langsung ke [https://github.com/idlanyor/scanova/releases](https://github.com/idlanyor/scanova/releases).
 
 ## Manual Physical Device Validation Checklist
 

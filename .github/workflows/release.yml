@@ -2,14 +2,17 @@ name: Build & Release Scanova
 
 on:
   push:
+    branches:
+      - main
+      - master
     tags:
       - 'v*'
   workflow_dispatch:
     inputs:
       tag_name:
-        description: 'Tag/Release name (e.g. v1.0.0)'
+        description: 'Custom Tag/Release name (optional, e.g. v1.0.0)'
         required: false
-        default: 'v1.0.0'
+        default: ''
 
 permissions:
   contents: write
@@ -45,14 +48,14 @@ jobs:
             cp .env.example .env
           fi
 
-          # Prepare Release Keystore: from secret if provided, otherwise generate a secure release key
+          # Prepare Release Keystore: from secret if provided, otherwise generate a standalone key
           if [ -n "${{ secrets.RELEASE_KEYSTORE_BASE64 }}" ]; then
             echo "Decoding release keystore from GitHub Secrets..."
             echo "${{ secrets.RELEASE_KEYSTORE_BASE64 }}" | base64 --decode > my-upload-key.jks
             echo "STORE_PASSWORD=${{ secrets.STORE_PASSWORD || 'android' }}" >> $GITHUB_ENV
             echo "KEY_PASSWORD=${{ secrets.KEY_PASSWORD || 'android' }}" >> $GITHUB_ENV
           else
-            echo "No custom release keystore secret found. Generating standalone release key for signing..."
+            echo "Generating standalone release key for signing..."
             keytool -genkeypair -v \
               -keystore my-upload-key.jks \
               -alias upload \
@@ -73,12 +76,22 @@ jobs:
       - name: Build Release APK & AAB
         run: ./gradlew assembleRelease bundleRelease --no-daemon
 
-      - name: Rename & Package Release Artifacts
-        id: prepare_artifacts
+      - name: Determine Release Tag & Version
+        id: resolve_tag
         run: |
-          RELEASE_TAG="${{ github.ref_name }}"
-          if [ -z "$RELEASE_TAG" ] || [ "$RELEASE_TAG" = "main" ] || [ "$RELEASE_TAG" = "master" ]; then
-            RELEASE_TAG="${{ inputs.tag_name || 'v1.0.0' }}"
+          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+          DATE_TAG=$(date +'%Y.%m.%d')
+
+          if [[ "${{ github.ref }}" == refs/tags/v* ]]; then
+            RELEASE_TAG="${GITHUB_REF#refs/tags/}"
+            RELEASE_TITLE="Scanova $RELEASE_TAG"
+          elif [ -n "${{ inputs.tag_name }}" ]; then
+            RELEASE_TAG="${{ inputs.tag_name }}"
+            RELEASE_TITLE="Scanova $RELEASE_TAG"
+          else
+            # Triggered on branch commit (push to main/master)
+            RELEASE_TAG="v${DATE_TAG}-${SHORT_SHA}"
+            RELEASE_TITLE="Scanova v${DATE_TAG} (${SHORT_SHA})"
           fi
 
           mkdir -p release-artifacts
@@ -96,19 +109,20 @@ jobs:
           fi
 
           echo "RELEASE_TAG=$RELEASE_TAG" >> $GITHUB_ENV
+          echo "RELEASE_TITLE=$RELEASE_TITLE" >> $GITHUB_ENV
           ls -lh release-artifacts/
 
       - name: Upload Artifacts as Workflow Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: scanova-release-builds
+          name: scanova-builds
           path: release-artifacts/*
 
       - name: Create GitHub Release & Upload Binaries
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.RELEASE_TAG }}
-          name: "Scanova ${{ env.RELEASE_TAG }}"
+          name: ${{ env.RELEASE_TITLE }}
           draft: false
           prerelease: false
           generate_release_notes: true
@@ -117,6 +131,8 @@ jobs:
             release-artifacts/*.aab
           body: |
             ## Scanova — QR & Barcode Scanner (${{ env.RELEASE_TAG }})
+
+            Automated build from commit `${{ github.sha }}` on branch `${{ github.ref_name }}`.
 
             ### What's New
             - **Real-Time CameraX & ML Kit Scanner**: Instant scanning for all 2D (`QR`, `Data Matrix`, `PDF417`, `Aztec`) and 1D (`EAN-13`, `UPC-A`, `Code 128`, etc.) barcodes.
